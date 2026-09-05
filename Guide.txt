@@ -1,0 +1,50 @@
+Role Definition: Builds and maintains integrated toolchains and Internal Developer Platforms (IDPs) so application teams can build, test, deploy, and monitor services self-sufficiently.
+
+Core Philosophy: Treats the platform as an internal software product, serving application engineers as the primary customers rather than operating as a ticket-based support desk.
+
+Core Skill Areas & Tooling
+Operating Systems & Networking: Linux kernel mechanics (namespaces, cgroups, systemd), shell automation (Bash), and enterprise networking (DNS, routing, CIDR, TLS/mTLS, HTTP/gRPC).
+
+Container Runtimes & Orchestration: Docker, OCI image standards, and Kubernetes core architecture (CRDs, Custom Controllers, Ingress controllers, CNI, CSI, and Service Meshes like Istio).
+
+Infrastructure as Code (IaC): Declarative cloud resource provisioning using Terraform, OpenTofu, Pulumi, and control-plane tools like Crossplane.
+
+Continuous Delivery & GitOps: Automated release automation and state reconciliation using ArgoCD, Flux, GitHub Actions, GitLab CI, and Tekton.
+
+Observability & Reliability: Standardized telemetry collection using Prometheus, Grafana, OpenTelemetry (OTel), Jaeger, and Loki.
+
+Developer Portals (IDPs): Service cataloging, self-service scaffolding, and developer onboarding portals using Spotify Backstage, Port, or Kratix.
+
+Policy & Security Guardrails: Shift-left security, policy-as-code, and automated credential rotation via Kyverno, Open Policy Agent (OPA/Gatekeeper), HashiCorp Vault, Trivy, and Cosign.
+
+Key Operational Principles
+Paved Paths (Golden Paths): Deliver well-supported, secure default blueprints for service creation so developers voluntarily choose standard, compliant patterns over custom workarounds.
+
+Self-Service Workflows: Eliminate manual Jira tickets for infrastructure requests by offering API-driven, portal-based, or Git-based provisioning triggers.
+
+Right-Sized Abstractions: Shield application teams from raw cloud and Kubernetes complexity without obscuring critical application performance metrics and failure modes.
+
+Product Management Loop: Continuously evaluate platform features against developer feedback, internal surveys, and automated usage telemetry.
+
+Fundamental Architecture Patterns
+GitOps Delivery: Maintain cluster configurations declaratively in Git repositories while in-cluster operators (ArgoCD or Flux) reconcile drift automatically, eliminating direct terminal changes in production.
+
+Declarative Cloud Providers (Crossplane): Package multi-resource cloud setups (e.g., AWS RDS, IAM roles, security groups) into single custom Kubernetes resources for developers to reference in deployment manifests.
+
+Dynamic Ephemeral Environments: Enable pull-request-driven temporary preview environments that spin up automatically on branch creation and tear down upon merging.
+
+Success Metrics (KPIs)
+Lead Time for Changes: Elapsed duration between code commit and safe production deployment.
+
+Deployment Frequency: Volume of independent production releases per team without platform blockers.
+
+Onboarding Latency: Time required for a newly hired engineer to stand up a local environment and ship their first service to staging.
+
+Change Failure Rate & MTTR: Percentage of releases that degrade services and the mean time to restore normal operations via rollbacks or auto-healing.
+
+Phased Career & Implementation Roadmap
+Phase 1 (Containers & CI Standardization): Standardize base images, configure automated CI pipelines (linting, testing, CVE scanning), and streamline local developer environments.
+
+Phase 2 (GitOps & Guardrails): Migrate cluster management to GitOps controllers, roll out centralized secrets management, and enforce strict policy-as-code validations on pull requests.
+
+Phase 3 (IDP & Platform Abstraction): Deploy an internal developer portal (Backstage/Port), automate one-click service generation wizards, and integrate infrastructure requests into standard application manifests.
